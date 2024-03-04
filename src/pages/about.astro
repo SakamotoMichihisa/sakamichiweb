@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 const pageTitle = "about";
 
 const identity = {
@@ -44,9 +45,7 @@ const goal = 3;
 
 	</head>
 	<body>
-     <a href="/">works</a>
-     <a href="/about/">about</a>
-     <a href="/contact/">contact</a>
+        <Navigation />
 
 		<h1>{pageTitle}</h1>
  
@@ -76,6 +75,6 @@ const goal = 3;
         {finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
 
         {goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
-
+    <Footer />
 	</body>
 </html>

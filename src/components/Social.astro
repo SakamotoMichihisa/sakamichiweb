@@ -1,0 +1,20 @@
+---
+const { platform, username } = Astro.props;
+---
+<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+<!--
+リンクしたいオンラインアカウントが複数ある場合のため、再利用可能なコンポーネントを1つ作成、それを何度も表示する。
+オンラインプラットフォームとユーザー名という2つのプロパティ（props）を渡す。
+Footerのところに行くとそれぞれplatformを指定していることがわかる 
+-->
+
+
+<style>
+    a {
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: #31eaff;
+      text-decoration: none;
+    }
+  </style>
