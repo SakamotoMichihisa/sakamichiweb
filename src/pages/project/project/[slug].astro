@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getProjectBySlug } from "../../../utils/microcms.js";
+
+
+// SSR: getStaticPaths() は不要
+// リクエストがあった時に実行される
+const { slug } = Astro.params;
+const project = await getProjectBySlug(slug);
+
+if (!project) {
+  // slug に対応する project が見つからない場合は 404
+  throw Astro.error(new Error("Project not found"), { status: 404 });
+}
+---
+
+<BaseLayout title={project.title}>$ git push
+  <section class="project-detail-section">
+    <h1>{project.title}</h1>
+    <div class="project-content" set:html={project.content}></div>
+    <!-- 作品画像等を差し込み -->
+    {project.images && project.images.length > 0 && (
+      <div class="images">
+        {project.images.map(img => (
+          <img src={img.url} alt="" loading="lazy" />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

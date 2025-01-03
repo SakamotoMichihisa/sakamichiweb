@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getProjects } from "../utils/microcms.js";
+
+/** 
+ * microCMS からデータを取得 
+ */
+const projectsData = await getProjects();
+---
+
+<BaseLayout title="Projects">
+  <section class="projects-section">
+    <h1>PROJECTS</h1>
+    <div class="projects-grid">
+      {projectsData.contents.map(project => (
+        <a href={`/project/${project.slug}`} class="project-item">
+          <!-- 
+            画像(もしくは video)にカーソルを合わせた時に 
+            opacity やタイトル表示をコントロール 
+          -->
+          <div class="thumb-container">
+            {/*
+              mp4 などの動画もサムネイルに使用したい場合、
+              <img> の代わりに <video> を使うことがある。
+              しかしページ全体の読み込み速度低下を防ぐために
+              "loading=lazy" や、低容量/短尺の動画を使用 or
+              まずはポスター画像を表示してクリックで再生などを推奨。
+            */}
+            <img 
+              src={project.thumbnail?.url} 
+              alt={project.title} 
+              loading="lazy"
+            />
+            <div class="overlay">
+              <span class="project-title">{project.title}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

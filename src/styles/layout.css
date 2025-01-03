@@ -1,0 +1,113 @@
+.site-header {
+    padding: var(--space-16);
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-16);
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  main {
+    padding: var(--space-16);
+  }
+  
+  /* projects ページ グリッド */
+  .projects-section {
+    margin-top: var(--space-32);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-16);
+    margin-top: var(--space-16);
+  }
+  
+  .project-item {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .thumb-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 16:9 の比率をキープ */
+    overflow: hidden;
+  }
+  
+  .thumb-container img, 
+  .thumb-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+  }
+  
+  .thumb-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+  
+  .thumb-container .project-title {
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .project-item:hover .thumb-container img {
+    opacity: 0.7;
+  }
+  
+  .project-item:hover .thumb-container .overlay {
+    opacity: 1;
+  }
+  
+  /* project detail */
+  .project-detail-section {
+    margin-top: var(--space-32);
+  }
+  
+  .project-content {
+    margin: var(--space-16) 0;
+  }
+  
+  .images img {
+    display: block;
+    margin-bottom: var(--space-16);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* about */
+  .about-section {
+    margin-top: var(--space-32);
+  }
+  .about-text {
+    margin-top: var(--space-16);
+  }
+  
+  /* contact */
+  .contact-section {
+    margin-top: var(--space-32);
+  }
+  

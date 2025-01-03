@@ -3,7 +3,7 @@ html {
     font-family: sans-serif;
   }
   
-  body {
+  /*body {
     margin: 0 auto;
     width: 100%;
     max-width: 80ch;
@@ -13,9 +13,50 @@ html {
   
   * {
     box-sizing: border-box;
+  }*/
+
+  @font-face {
+    font-family: "HelveticaNeue";
+    src: url("/fonts/HelveticaNeue.ttc") format("ttc");
+    font-display: swap;
   }
   
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+  @font-face {
+    font-family: "AP-SK-IshiiGothicStdN-M";
+    src: url("/fonts/AP-SK-IshiiGothicStdN-M.otf") format("otf");
+    font-display: swap;
+  }
+  
+  /* ベースリセットや全体スタイル */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    max-width: 100%;
+    padding: 1rem;
+    line-height: 1.5;
+    font-family: "HelveticaNeueMedium", "YuGothicBold", sans-serif;
+    /* ※ 実際には和文と欧文でフォントファミリーを切り分けたい場合は
+       body や p, h1, h2 などで lang 属性を活用したり、CSS でフォント指定を分ける方法があります。 */
+    line-height: 1.5;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* マージンのスケール */
+  :root {
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-32: 32px;
+    --space-48: 48px;
+  }
+  
+  /* 見出しや段落などお好みで */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "YuGothicBold", sans-serif; 
+    /* 和文フォントを優先したい場合 */
+    margin-bottom: var(--space-16);
   }

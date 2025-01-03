@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+const pageTitle = "sakamotomichihisa/坂本倫久";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!--
+		Astroテンプレート内で変数を波括弧{ }で囲んで使用すると、
+		AstroにJavaScriptを使用していることを伝えられる。
+		-->
+		<title>{pageTitle}</title>
+
+		<!--
+        Astroの<style></style>タグを使うとページの要素にスタイルを適用できる。
+		このタグに属性とディレクティブを追加するとより多くの方法でスタイルを設定できる。
+		global.cssで全体のcssが調整されるが、ローカルで各ページにstyleタグあるとそっち優先。
+		 -->
+
+		<style>
+			h1 {
+			  color: blue;
+			  font-size: 4rem;
+			}
+		  </style>
+
+	</head>
+	<body>
+		<Navigation />
+		
+		<h1>sakamotomichihisa</h1>
+		<h4>sakamichi portfolio site demo 2024_03_05
+		</h4>
+		<Footer />
+	</body>
+</html>
